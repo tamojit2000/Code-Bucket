@@ -1,0 +1,37 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Main Page</title>
+  </head>
+  <body>
+    {% if Status=='Wrong' %}
+
+      <h1>Wrong Password</h1>
+
+
+    {% elif Status=='Ok' or Status=='New' %}
+
+      <h1>Username= {{ User.Username }}</h1>
+      <h4>Score= {{ User.Score }}</h4>
+
+      <ul>
+
+        {% for item in Question %}
+          <li>
+            <h5>No. {{ item['id'] }}</h5>
+            <h6>Problem Statement {{ item['statement'] }}</h6>
+            <h6>Explanation {{ item['explanantion'] }}</h6>
+            <form action="check" method="POST">
+              <input type="file" name="file" value="Upload Solution">
+            </form>
+          </li>
+        {% endfor %}
+      </ul>
+
+
+    {% endif %}
+
+
+
+  </body>
+</html>
