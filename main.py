@@ -3,8 +3,7 @@ from User import *
 from Functions import *
 
 
-USER_DATABASE=Load_User_Database()
-QUESTION_DATABASE=Load_Question_Database()
+
 
 app=Flask(__name__)
 
@@ -18,22 +17,41 @@ def main_page():
         Username=request.form['Username']
         Password=request.form['Password']
 
+        USER_DATABASE=Load_User_Database()
+        QUESTION_DATABASE=Load_Question_Database()
+
         if (Username in USER_DATABASE) and USER_DATABASE[Username].Password==Password:
             status='Ok'
-            User=USER_DATABASE[Username]
+            user=USER_DATABASE[Username]
         elif (Username in USER_DATABASE) and USER_DATABASE[Username].Password!=Password:
             status='Wrong'
-            User=USER_DATABASE[Username]
+            user=USER_DATABASE[Username]
         elif Username not in USER_DATABASE:
             status='New'
-            User=User(Username,Password)
-            Write_User_Database(USER_DATABASE,User)
+            user=User(Username,Password)
+            Write_User_Database(USER_DATABASE,user)
 
 
 
-        return render_template('main_page.html',User=User,Status=status,Question=QUESTION_DATABASE)
+        return render_template('main_page.html',User=user,Status=status,Question=QUESTION_DATABASE)
     else:
         return redirect('/')
+
+@app.route('/check',methods=['POST','GET'])
+def check():
+    if request.method=='POST':
+        file=request.files['file']
+        index=request.form['index']
+        file.save(file.filename)
+
+        f=open(file.filename,'r')
+        data=f.read()
+        f.close()
+
+        return render_template('check.html',Data=data,Index=index)
+    else:
+        return  redirect('/')
+
 
 if __name__=='__main__':
     app.run(debug=True)

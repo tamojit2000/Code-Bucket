@@ -1,0 +1,10 @@
+Input and print Odd Even.
+
+0=Even
+1=Odd
+2=Even
+3=Odd
+
+3
+78
+87

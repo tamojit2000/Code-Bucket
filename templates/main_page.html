@@ -19,10 +19,11 @@
         {% for item in Question %}
           <li>
             <h5>No. {{ item['id'] }}</h5>
-            <h6>Problem Statement {{ item['statement'] }}</h6>
-            <h6>Explanation {{ item['explanantion'] }}</h6>
-            <form action="check" method="POST">
+            <h6>Problem Statement {{ item['explanation'] }}</h6>
+            <form action="check" method="POST" enctype="multipart/form-data">
               <input type="file" name="file" value="Upload Solution">
+              <input type="hidden" name="index" value={{ item['id'] }}>
+              <input type="submit" name="" value="Upload">
             </form>
           </li>
         {% endfor %}
