@@ -2,6 +2,11 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <script language="javascript">
+      setInterval(function(){
+        window.location.reload(1);
+      }, 30000);
+    </script>
     <title>Main Page</title>
     <style>
     .div1
@@ -60,7 +65,7 @@
             <h6 style="font-size:15px;font-style:italic;padding-left:15px">Problem Statement<br> {{ item['explanation'] }}</h6>
             {% if item['id'] not in User.Progress %}
               <form action="check" method="POST" enctype="multipart/form-data">
-              <input type="file" name="file" value="Upload Solution" style="padding-left:60%">
+              <input type="file" name="file" value="Upload Solution" accept=".py" style="padding-left:60%">
               <input type="hidden" name="index" value={{ item['id'] }}>
               <input type="hidden" name="userKey" value={{ User.Username }}>
               <input type="submit" name="" value="Upload">
