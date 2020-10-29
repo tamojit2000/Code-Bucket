@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Rank List</title>
+  </head>
+  <body>
+    <table border=1>
+
+      <tr>
+        <td>RANK</td>
+        <td>SCORE</td>
+        <td>USERNAME</td>
+      </tr>
+
+      {% for user in Data %}
+      <tr>
+        <td>{{ user[0] }}</td>
+        <td>{{ user[1] }}</td>
+        <td>{{ user[2] }}</td>
+
+      </tr>
+      {% endfor %}
+    </table>
+
+  </body>
+</html>

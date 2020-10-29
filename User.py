@@ -2,8 +2,9 @@ class User:
     def __init__(self,Username,Password):
         self.Username=Username
         self.Password=Password
-        self.Progress=[0,0,0]
+        self.Progress=set()
         self.Score=0
 
-    def Calculate_Score(self):
-        self.Score=sum(self.Progress)*10
+    def __str__(self):
+        s=self.Username+'\n'+str(self.Progress)+'\n'+str(self.Score)
+        return s

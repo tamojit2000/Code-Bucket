@@ -6,7 +6,7 @@
     <style>
     .div1
     {
-    width: 1000px;
+    width: 60%;
     height: auto;
     font-size:400 px;
     font-family:arial;
@@ -15,17 +15,17 @@
     border-radius:20px;
     margin-left:20px;
     }
-    .section:after 
+    .section:after
     {
     content: "";
     display: table;
     clear: both;
     position: fixed;
     }
-    .animation 
+    .animation
     {
     padding: 20px;
-    margin-left:68%; 
+    margin-left:68%;
     margin-top:-47%;
     position:fixed;
     }
@@ -44,21 +44,29 @@
     <br>
     <br>
     <section>
-    
+
       <h1 style="font-size:30px;font-family:arial;font-style:italic;padding-left:35px">  Username : {{ User.Username }}</h1>
       <h4 style="font-size:25px;font-family:arial;padding-left:35px">Overall Coding Score : {{ User.Score }}</h4>
+      <h4 style="font-size:25px;font-family:arial;padding-left:35px">Account Status : {{ Status }}</h4>
     <br>
-      
+      <input type="button" value="Instruction" onclick="parent.location='instruction.html'">
+      <input type="button" value="Rank List" onclick="parent.location='rank_list.html'">
+
 
         {% for item in Question %}
         <div class="div1">
-          
+
             <h4 style="font-size:20px;padding-left:15px">Question {{ item['id'] }}</h4>
             <h6 style="font-size:15px;font-style:italic;padding-left:15px">Problem Statement<br> {{ item['explanation'] }}</h6>
-            <form action="check" method="POST" enctype="multipart/form-data">
+            {% if item['id'] not in User.Progress %}
+              <form action="check" method="POST" enctype="multipart/form-data">
               <input type="file" name="file" value="Upload Solution" style="padding-left:60%">
               <input type="hidden" name="index" value={{ item['id'] }}>
+              <input type="hidden" name="userKey" value={{ User.Username }}>
               <input type="submit" name="" value="Upload">
+            {% else %}
+              <h4> You have already attempted succesfully.</h4>
+            {% endif %}
             </form>
             <br>
             <br>
@@ -67,16 +75,16 @@
         <br>
         <br>
         {% endfor %}
-      
-      
-      
+
+
+
       <div class="animation">
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRFmpKPzRep43-PnT0TE8UKxTHlExlPRKW8WA&usqp=CAU" alt="Coding" class="img-thumbnail" style="width:430px;height:600px">
       </div>
       </section>
 
-     
- 
+
+
 
 
     {% endif %}

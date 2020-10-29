@@ -41,11 +41,28 @@ def Load_Question_Database():
     for file in os.listdir(os.getcwd()+'\\Questions'):
         f=open(os.getcwd()+'\\Questions'+'\\'+file+'\\statement.txt','r')
         statement=f.read()
-        print(statement)
         f.close()
         d={'id':file,'explanation':statement}
         data.append(d)
 
 
 
+    return data
+
+def Prepare_rank_list(data_dict):
+    l=[]
+    for i in data_dict:
+        l.append([data_dict[i].Score,data_dict[i].Username])
+    l.sort(reverse=True)
+    data=[]
+    c=1
+    for i in l:
+        if data==[]:
+            data.append([c,i[0],i[1]])
+        else:
+            if data[-1][1]==i[0]:
+                data.append([c,i[0],i[1]])
+            else:
+                c+=1
+                data.append([c,i[0],i[1]])
     return data
