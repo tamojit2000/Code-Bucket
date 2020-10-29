@@ -1,7 +1,35 @@
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Main Page</title>
+    <style>
+    .div1
+    {
+    width: 1000px;
+    height: auto;
+    font-size:400 px;
+    font-family:arial;
+    border: 3px solid purple;
+    margin-right:10px;
+    border-radius:20px;
+    margin-left:20px;
+    }
+    .section:after 
+    {
+    content: "";
+    display: table;
+    clear: both;
+    position: fixed;
+    }
+    .animation 
+    {
+    padding: 20px;
+    margin-left:68%; 
+    margin-top:-47%;
+    position:fixed;
+    }
+    </style>
   </head>
   <body>
     {% if Status=='Wrong' %}
@@ -10,29 +38,70 @@
 
 
     {% elif Status=='Ok' or Status=='New' %}
-
-      <h1>Username= {{ User.Username }}</h1>
-      <h4>Score= {{ User.Score }}</h4>
-
-      <ul>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section>
+    
+      <h1 style="font-size:30px;font-family:arial;font-style:italic;padding-left:35px">  Username : {{ User.Username }}</h1>
+      <h4 style="font-size:25px;font-family:arial;padding-left:35px">Overall Coding Score : {{ User.Score }}</h4>
+    <br>
+      
 
         {% for item in Question %}
-          <li>
-            <h5>No. {{ item['id'] }}</h5>
-            <h6>Problem Statement {{ item['explanation'] }}</h6>
+        <div class="div1">
+          
+            <h4 style="font-size:20px;padding-left:15px">Question {{ item['id'] }}</h4>
+            <h6 style="font-size:15px;font-style:italic;padding-left:15px">Problem Statement<br> {{ item['explanation'] }}</h6>
             <form action="check" method="POST" enctype="multipart/form-data">
-              <input type="file" name="file" value="Upload Solution">
+              <input type="file" name="file" value="Upload Solution" style="padding-left:60%">
               <input type="hidden" name="index" value={{ item['id'] }}>
               <input type="submit" name="" value="Upload">
             </form>
-          </li>
+            <br>
+            <br>
+
+        </div>
+        <br>
+        <br>
         {% endfor %}
-      </ul>
+      
+      
+      
+      <div class="animation">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRFmpKPzRep43-PnT0TE8UKxTHlExlPRKW8WA&usqp=CAU" alt="Coding" class="img-thumbnail" style="width:430px;height:600px">
+      </div>
+      </section>
+
+     
+ 
 
 
     {% endif %}
 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <br>
+
+  <br>
 
   </body>
 </html>
