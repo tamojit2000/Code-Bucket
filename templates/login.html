@@ -1,16 +1,53 @@
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Login</title>
-  </head>
-  <body>
-    <form action="main_page" method="POST">
-      <input type="text" name="Username" placeholder="Username" >
-      <input type="password" name="Password" placeholder="Password" >
-      <input type="submit" name="" value="Continue" >
-    </form>
+<!DOCTYPE html>
+<html>
 
-    <input type="button" value="Instruction" onclick="parent.location='instruction.html'">
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="../static/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
 
-  </body>
+<body>
+	<img class="wave" src="../static/img/wave.png">
+	<div class="container">
+		<div class="img">
+			<img src="../static/img/undraw_coding_6mjf.svg">
+		</div>
+		<div class="login-content">
+			<form onsubmit="return validate();" action="./main_page.html" method="POST">
+				<img src="../static/img/avatar.svg">
+				<h2 class="title">Welcome</h2>
+				<div class="input-div one">
+					<div class="i">
+						<i class="fas fa-user"></i>
+					</div>
+					<div class="div">
+						<h5>Username</h5>
+						<input type="text" class="input" id="uname" >
+					</div>
+					<!-- <div id="email_error">
+						please enter username
+					</div> -->
+					<label id="lb1" style="color: red; visibility:hidden;" ></label>
+
+				</div>
+				<div class="input-div pass">
+					<div class="i">
+						<i class="fas fa-lock"></i>
+					</div>
+					<div class="div">
+						<h5>Password</h5>
+						<input type="password" class="input" id="pass" name="Password">
+					</div>
+				</div>
+
+				<input type="submit" class="btn" value="Login">
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript" src="../static/login.js"></script>
+</body>
+
 </html>
