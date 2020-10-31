@@ -34,49 +34,43 @@
             <li class="nav-item">
               <a class="nav-link " href="rank_list.html">Rank List</a>
             </li>
-            
+
           </ul>
         </div>
     </nav>
-    <div class="container">
+    {% if Status=="Ok" or Status=="New" %}
+      <div class="container">
         <div class="first">
             <div class="details">
 
-                <h2>Username:</h2>
-                <h2>Total Coding Score:</h2>
-                <h2>Account Status: </h2>
+                <h2>Username: {{ User.Username }}</h2>
+                <h2>Total Coding Score: {{ User.Score }}</h2>
+                <h2>Account Status: {{ Status }}</h2>
             </div>
+
             <div class="box">
                 <div class="content">
-                    <h4>Question  </h4>
+                    <h4>Question </h4>
                     <br>
                     <br>
-                    <p>Lorem ipsum dolor sit amet, consectet
-                    Lorem ipsum dolor sit amet, c onsectet
-                    lorem ipsum dolor sit amet
-                    lorem ipsum dLorem Ipsum is simply dummy text of the printing 
-                    and typesetting industry. Lorem Ipsum has been the indus
-                    try's standard dummy text ever since the 1500s, when an un
-                    known printer took a galley of type and scrambled it to make
-                    a type specimen book. It has survived not only five cen
-                    turies, but also the leap into electronic typesetting,
-                    remaining essentially unchanged. It was popularised in 
-                    the 1960s with the release of Letraset sheets containing
-                    Lorem Ipsum passages, and more recently with desktop publishing software like 
-                    Aldus PageMaker including versions of Lorem Ipsum.
-                    lorem ipsum dolor sit</p>
+                    <p>
+                      Question statement
+                    </p>
                     <div class="file-upload">
                         <input class="file-upload__input" type="file" id="myFile"  accept=".py">
                         <button class="file-upload__button" type="button"  id="custom-button">Choose a file</button>
                         <br>
                         <span class="file-upload__label">No file selected</span>
-                        
+
                     </div>
                     <input class="upload__input" id="real-file" type="submit" name="" value="Upload">
                     <button class="upload__button" id="custom-button" type="button" id="upload-btn">Upload</button>
-                    
+
                 </div>
-            </div>
+              </div>
+
+            
+
         </div>
         <div class="second">
             <div class="animation">
@@ -84,10 +78,25 @@
             </div>
         </div>
 
-        
+
     </div>
-    
-    
+    {% elif Status=="Wrong" %}
+      <div class="box">
+        <div class="content">
+            <h4>Authentication Failed!</h4>
+            <br>
+            <br>
+            <p>
+              Password incorrect.
+              Go back and enter correct password.
+            </p>
+
+
+        </div>
+      </div>
+    {% endif %}
+
+
     <script src="../static/myScript.js"></script>
 </body>
 
