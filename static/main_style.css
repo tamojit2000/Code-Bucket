@@ -1,0 +1,133 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+h2{
+    font-family: Comic Sans, Consolas, "Lucida Grande", "Lucida";
+    font-size: 1.8rem;
+} 
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:2fr 1fr;
+    grid-gap :2rem;
+    padding: 2rem;
+}
+.first{
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: 1fr 3fr;
+    grid-gap :2rem;
+
+}
+.box{
+    position:relative;
+    display: flex;
+    border-radius: 5px;
+    max-height:auto;
+    background: rgb(221, 221, 221);
+    justify-content:center;
+    
+}
+.content{
+    position: absolute;
+    padding:25px;
+}
+.box .content h4
+{
+    margin:0;
+    padding:0;
+    transition: .8s;
+    font-size:30px;
+}
+.box .content p
+{
+    font-size: 16px;
+}
+.file-upload__button{
+    color:rgb(250, 244, 242);
+    height:auto;
+    width:auto;
+    -webkit-appearance:none;
+    background-color: rgb(101, 201, 148);
+    border:2px solid #00745D;
+    border-radius: 4px;
+    margin-top:10px;
+    padding: 0.5em 0.8em;
+    outline:none;
+    font-family: "Montserrat",sans-serif;
+    
+
+}
+.file-upload__button:hover
+{
+    background-color:  #00745D;;
+    cursor:pointer;
+    font-weight:bold;
+}
+#custom-text{
+    margin:10px;
+    font-family: "Montserrat",sans-serif;
+    color:
+}
+.file-upload__label{
+    max-width:250px;
+    font-size: 0.95em;
+    text-overflow: ellipsis;
+    overflow:hidden;
+    white-space: nowrap;
+    margin:15px;
+    font-family: "Montserrat",sans-serif;
+    padding-top:10px;
+}
+.file-upload
+{
+    display: inline-flex;
+}
+.file-upload__input{
+    display:none;
+}
+
+
+.animation
+{
+    position:fixed;
+    margin-top:20%;
+    height: auto;
+    transition:0.5s;
+}
+.second
+{
+    position:relative;
+   
+}
+.upload__input{
+    display:none;
+}
+.upload__button
+{
+    color:rgb(250, 244, 242);
+    height:auto;
+    width:auto;
+    -webkit-appearance:none;
+    background-color: rgb(101, 201, 148);
+    border:2px solid #00745D;
+    border-radius: 4px;
+    margin-top:10px;
+    margin-left:70px;
+    padding: 0.5em 0.8em;
+    outline:none;
+    font-family: "Montserrat",sans-serif;
+}
+.upload__button:hover
+{
+    background-color: #00b28f;
+    cursor:pointer;
+    font-weight:bold;
+}

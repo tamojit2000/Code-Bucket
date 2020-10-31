@@ -1,0 +1,29 @@
+body{
+    font-family: 'Courier New', Courier, monospace
+    
+}
+.container{
+    margin:20px;
+    padding:30px;
+    width:auto;
+    height:auto;
+    display:grid;
+    
+}
+h1{
+    font-size: 2.5em;
+    font-weight: bold;
+}
+img{
+    max-width:500px;
+    max-height:500px;
+    margin-left: 25%;
+    margin-top:20px;
+}
+
+@media only screen and (max-width: 768px)
+{
+    img{
+        width:90%;
+    }
+}
