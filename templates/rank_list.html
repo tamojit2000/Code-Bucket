@@ -10,9 +10,9 @@
   <link rel="stylesheet" href="../static/owl.carousel.min.css">
   <link rel="stylesheet" href="../static/owl.theme.default.min.css">
 
-    <meta charset="utf-8">
-    <title>Rank List</title>
-    <link rel="stylesheet" type="text/css" href="../static/rank.css">
+  <meta charset="utf-8">
+  <title>Rank List</title>
+  <!-- <link rel="stylesheet" type="text/css" href="../static/rank.css"> -->
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -44,127 +44,14 @@
         <th>County</th>
         <th>Total Score</th>
       </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-      <tr>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-        <td>A</td>
-      </tr>
-
+      {% for row in Data %}
+        <tr>
+          <td>{{ row[2] }}</td>
+          <td>{{ row[0] }}</td>
+          <td>India</td>
+          <td>{{ row[1] }}</td>
+        </tr>
+      {% endfor %}
     </table>
 
   </body>

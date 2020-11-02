@@ -6,7 +6,7 @@ import os
 USER_DATABASE=Load_User_Database()
 QUESTION_DATABASE=Load_Question_Database()
 
-
+tmp_user_name=''
 
 app=Flask(__name__)
 
@@ -16,6 +16,8 @@ def login():
 
 @app.route('/main_page',methods=['POST','GET'])
 def main_page():
+    global tmp_user_name
+
     if request.method=='POST':
         global USER_DATABASE,QUESTION_DATABASE
 
@@ -39,10 +41,16 @@ def main_page():
 
         #print(user)
 
+        tmp_user_name=Username
+
 
         return render_template('main_page.html',User=user,Status=status,Question=QUESTION_DATABASE)
-    else:
-        return redirect('/')
+    if request.method=='GET':
+        if tmp_user_name!='':
+            USER_DATABASE=Load_User_Database()
+            return render_template('main_page.html',User=USER_DATABASE[tmp_user_name],Status='Ok',Question=QUESTION_DATABASE)
+    return redirect('/')
+
 
 @app.route('/check',methods=['POST','GET'])
 def check():
@@ -106,12 +114,15 @@ def check():
         return  redirect('/')
 
 
-@app.route('/rank_list.html')
+@app.route('/rank_list.html',methods=['GET'])
 def rank_list():
-    global USER_DATABASE
-    USER_DATABASE=Load_User_Database()
-    data=Prepare_rank_list(USER_DATABASE)
-    return render_template('rank_list.html',Data=data)
+    if request.method=='GET':
+        global USER_DATABASE
+        USER_DATABASE=Load_User_Database()
+        data=Prepare_rank_list(USER_DATABASE)
+        return render_template('rank_list.html',Data=data)
+    else:
+        return redirect('/')
 
 @app.route('/instruction.html')
 def instruction():

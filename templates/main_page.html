@@ -18,70 +18,79 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="login.html">CODE BUCKET</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="instruction.html">About</span></a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Code Here<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="rank_list.html">Rank List</a>
-            </li>
 
-          </ul>
-        </div>
-    </nav>
     {% if Status=="Ok" or Status=="New" %}
-      <div class="container">
-        <div class="first">
-            <div class="details">
 
-                <h2>Username: {{ User.Username }}</h2>
-                <h2>Total Coding Score: {{ User.Score }}</h2>
-                <h2>Account Status: {{ Status }}</h2>
-            </div>
+    <div class="Load_main_div">
 
-            <div class="box">
-                <div class="content">
-                    <h4>Question </h4>
-                    <br>
-                    <br>
-                    <p>
-                      Question statement
-                    </p>
-                    <div class="file-upload">
-                        <input class="file-upload__input" type="file" id="myFile"  accept=".py">
-                        <button class="file-upload__button" type="button"  id="custom-button">Choose a file</button>
-                        <br>
-                        <span class="file-upload__label">No file selected</span>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="login.html">CODE BUCKET</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="instruction.html">About</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="#">Code Here<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="rank_list.html">Rank List</a>
+              </li>
 
-                    </div>
-                    <input class="upload__input" id="real-file" type="submit" name="" value="Upload">
-                    <button class="upload__button" id="custom-button" type="button" id="upload-btn">Upload</button>
+            </ul>
+          </div>
+      </nav>
 
-                </div>
+      <div class="details">
+        <h2>Username: {{ User.Username }}</h2>
+        <h2>Total Coding Score: {{ User.Score }}</h2>
+        <h2>Account Status: {{ Status }}</h2>
+      </div>
+
+
+        {% for item in Question %}
+        <div>
+            <h4>Question {{ item['id'] }}</h4>
+            <br>
+            <br>
+            <pre>
+              Question statement
+              {{ item['explanation'] }}
+            </pre>
+            {% if item['id'] not in User.Progress %}
+
+              <div class="file-upload">
+                <input class="file-upload__input" type="file" id="myFile"  accept=".py">
+                <button class="file-upload__button" type="button"  id="custom-button">Choose a file</button>
+                <br>
+                <span class="file-upload__label">No file selected</span>
+
               </div>
-
-            
-
+              <input class="upload__input" id="real-file" type="submit" name="" value="Upload">
+              <button class="upload__button" id="custom-button" type="button" id="upload-btn">Upload</button>
+            {% else %}
+                <h4> You have already attempted succesfully.</h4>
+            {% endif %}
         </div>
+
+
+        {% endfor %}
+
         <div class="second">
             <div class="animation">
                 <img src="../static/img/main_page_img.svg" alt="Coding" class="img-thumbnail" style="width:80%;height:auto">
             </div>
         </div>
 
-
     </div>
+
+
+
     {% elif Status=="Wrong" %}
-      <div class="box">
+      <div class="Load_wrong_div">
         <div class="content">
             <h4>Authentication Failed!</h4>
             <br>
