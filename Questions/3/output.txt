@@ -1,2 +1,4 @@
-Odd
-Even
+Yes
+Yes
+No
+No

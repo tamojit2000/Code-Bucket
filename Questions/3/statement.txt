@@ -1,10 +1,17 @@
-Input and print Odd Even.
+Chek for Palindrone String.
 
-0=Even
-1=Odd
-2=Even
-3=Odd
+Input
+First line t=No of test cases
+Next t lines each with an input
 
-3
-78
-87
+Output
+Print Yes or No.
+
+Examples
+
+2
+abcba
+werrew
+
+>>> Yes
+>>> Yes

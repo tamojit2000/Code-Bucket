@@ -1,10 +1,13 @@
-Input and print Odd Even.
+Check for perfect square
 
-0=Even
-1=Odd
-2=Even
-3=Odd
+Input
+Any number
 
-3
+Output
+Yes or No
+
+Examples
+
 78
-87
+
+>>> No

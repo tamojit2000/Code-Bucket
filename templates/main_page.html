@@ -15,6 +15,13 @@
     <link rel="stylesheet" href="../static/owl.theme.default.min.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <script language="javascript">
+      setInterval(function(){
+        window.location.reload(1);
+      }, 30000);
+    </script -->
+
 </head>
 
 <body>
@@ -24,7 +31,7 @@
     <div class="Load_main_div">
 
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="login.html">CODE BUCKET</a>
+          <a class="navbar-brand" href="/">CODE BUCKET</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -56,23 +63,17 @@
             <h4>Question {{ item['id'] }}</h4>
             <br>
             <br>
-            <pre>
-              Question statement
-              {{ item['explanation'] }}
-            </pre>
+            <pre>Question statement</pre>
+            <pre>{{ item['explanation'] }}</pre>
             {% if item['id'] not in User.Progress %}
-
-              <div class="file-upload">
-                <input class="file-upload__input" type="file" id="myFile"  accept=".py">
-                <button class="file-upload__button" type="button"  id="custom-button">Choose a file</button>
-                <br>
-                <span class="file-upload__label">No file selected</span>
-
-              </div>
-              <input class="upload__input" id="real-file" type="submit" name="" value="Upload">
-              <button class="upload__button" id="custom-button" type="button" id="upload-btn">Upload</button>
+              <form action="check" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" value="Upload Solution" accept=".py">
+                <input type="hidden" name="index" value={{ item['id'] }}>
+                <input type="hidden" name="userKey" value={{ User.Username }}>
+                <input type="submit" name="" value="Upload">
+              </form>
             {% else %}
-                <h4> You have already attempted succesfully.</h4>
+                <h6> You have already attempted succesfully.</h6>
             {% endif %}
         </div>
 
@@ -104,6 +105,12 @@
         </div>
       </div>
     {% endif %}
+
+    <div class="Bottom_space">
+      {% for i in range(10) %}
+        <br>
+      {% endfor %}
+    </div>
 
 
     <script src="../static/myScript.js"></script>

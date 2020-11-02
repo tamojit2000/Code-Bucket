@@ -16,7 +16,8 @@ A Coding Competition Platform
 
 ### Note
 
-Refresh page when reqd updation
+- Refresh page when reqd updation
+- Programs are added for testing
  
   
   
