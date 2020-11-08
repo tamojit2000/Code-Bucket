@@ -1,0 +1,13 @@
+#t_left{
+  width:60%;
+  height: auto;
+  float:left;
+  margin-left: 5%;
+}
+
+#t_right{
+  width:40%;
+  height: auto;
+  float:right;
+  background-color: green;
+}

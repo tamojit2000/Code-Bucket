@@ -14,13 +14,11 @@
     <link rel="stylesheet" href="../static/owl.carousel.min.css">
     <link rel="stylesheet" href="../static/owl.theme.default.min.css">
 
+    <link rel="stylesheet" href="../static/t_main_css.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- <script language="javascript">
-      setInterval(function(){
-        window.location.reload(1);
-      }, 30000);
-    </script -->
+    
 
 </head>
 
@@ -51,40 +49,50 @@
           </div>
       </nav>
 
-      <div class="details">
-        <h2>Username: {{ User.Username }}</h2>
-        <h2>Total Coding Score: {{ User.Score }}</h2>
-        <h2>Account Status: {{ Status }}</h2>
+      <div id="t_left">
+        <div class="details">
+          <h2>Username: {{ User.Username }}</h2>
+          <h2>Total Coding Score: {{ User.Score }}</h2>
+          <h2>Account Status: {{ Status }}</h2>
+        </div>
+
+
+          {% for item in Question %}
+          <div>
+              <h4>Question {{ item['id'] }}</h4>
+              <br>
+              <br>
+              <pre>Question statement</pre>
+              <pre>{{ item['explanation'] }}</pre>
+              {% if item['id'] not in User.Progress %}
+                <form action="check" method="POST" enctype="multipart/form-data">
+                  <input type="file" name="file" value="Upload Solution" accept=".py">
+                  <input type="hidden" name="index" value={{ item['id'] }}>
+                  <input type="hidden" name="userKey" value={{ User.Username }}>
+                  <input type="submit" name="" value="Upload">
+                </form>
+              {% else %}
+                  <h6> You have already attempted succesfully.</h6>
+              {% endif %}
+          </div>
+
+
+          {% endfor %}
+
+
+
+
+
+
       </div>
 
-
-        {% for item in Question %}
-        <div>
-            <h4>Question {{ item['id'] }}</h4>
-            <br>
-            <br>
-            <pre>Question statement</pre>
-            <pre>{{ item['explanation'] }}</pre>
-            {% if item['id'] not in User.Progress %}
-              <form action="check" method="POST" enctype="multipart/form-data">
-                <input type="file" name="file" value="Upload Solution" accept=".py">
-                <input type="hidden" name="index" value={{ item['id'] }}>
-                <input type="hidden" name="userKey" value={{ User.Username }}>
-                <input type="submit" name="" value="Upload">
-              </form>
-            {% else %}
-                <h6> You have already attempted succesfully.</h6>
-            {% endif %}
-        </div>
-
-
-        {% endfor %}
-
+      <div id="t_right">
         <div class="second">
             <div class="animation">
-                <img src="../static/img/main_page_img.svg" alt="Coding" class="img-thumbnail" style="width:80%;height:auto">
+                <img src="../static/img/main_page_img.svg" alt="Coding" class="img-thumbnail" style=width:fit-content;height:20rem>
             </div>
         </div>
+      </div>
 
     </div>
 
