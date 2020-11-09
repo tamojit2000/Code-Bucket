@@ -11,3 +11,32 @@
   float:right;
   background-color: green;
 }
+
+#t_box{
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: green;
+  border-style: groove;
+  padding: 16px;
+  min-height: 20px;
+  width: auto;
+  text-align: left;
+  margin-top: 10px;
+  overflow-x:auto;
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3), 0 7px 21px 0 rgba(0,0,0,0.20);
+}
+
+#t_button{
+  border: 2px solid green;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 10px;
+  background: white;
+  color: green;
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  
+
+}

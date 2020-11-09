@@ -9,10 +9,21 @@ QUESTION_DATABASE=Load_Question_Database()
 tmp_user_name=''
 
 app=Flask(__name__)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+
+@app.after_request
+def add_header(response):
+    # response.cache_control.no_store = True
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, post-check=0, pre-check=0, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '-1'
+    return response
+
 
 @app.route('/')
 def login():
-    return render_template('login.html')
+    v=Increase_views()
+    return render_template('login.html',Views=v)
 
 @app.route('/main_page',methods=['POST','GET'])
 def main_page():

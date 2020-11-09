@@ -18,7 +18,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    
+
 
 </head>
 
@@ -58,7 +58,7 @@
 
 
           {% for item in Question %}
-          <div>
+          <div id="t_box">
               <h4>Question {{ item['id'] }}</h4>
               <br>
               <br>
@@ -66,10 +66,10 @@
               <pre>{{ item['explanation'] }}</pre>
               {% if item['id'] not in User.Progress %}
                 <form action="check" method="POST" enctype="multipart/form-data">
-                  <input type="file" name="file" value="Upload Solution" accept=".py">
+                  <input type="file" name="file" value="File" accept=".py">
                   <input type="hidden" name="index" value={{ item['id'] }}>
                   <input type="hidden" name="userKey" value={{ User.Username }}>
-                  <input type="submit" name="" value="Upload">
+                  <input id="t_button" type="submit" name="" value="Upload">
                 </form>
               {% else %}
                   <h6> You have already attempted succesfully.</h6>
@@ -77,6 +77,10 @@
           </div>
 
 
+          {% endfor %}
+
+          {% for i in range(5) %}
+            <br>
           {% endfor %}
 
 
