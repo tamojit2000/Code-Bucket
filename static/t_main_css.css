@@ -24,6 +24,8 @@
   margin-top: 10px;
   overflow-x:auto;
   box-shadow: 0 5px 10px 0 rgba(0,0,0,0.3), 0 7px 21px 0 rgba(0,0,0,0.20);
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 
 #t_button{
@@ -37,6 +39,6 @@
   text-align: center;
   width: 100px;
   height: 40px;
-  
+
 
 }
