@@ -15,7 +15,7 @@ Array.prototype.forEach.call(document.querySelectorAll('.file-upload__button'),f
     });
     hiddenInput.addEventListener('change',function()
     {
-        console.log(hiddenInput.files); 
+        console.log(hiddenInput.files);
         const filenameList=Array.prototype.map.call(hiddenInput.files,function(file)
         {
             return file.name;

@@ -66,7 +66,7 @@
               <pre>{{ item['explanation'] }}</pre>
               {% if item['id'] not in User.Progress %}
                 <form action="check" method="POST" enctype="multipart/form-data">
-                  <input type="file" name="file" value="File" accept=".py">
+                  <input type="file" name="file" value="File" id="file" accept=".py" required>
                   <input type="hidden" name="index" value={{ item['id'] }}>
                   <input type="hidden" name="userKey" value={{ User.Username }}>
                   <input id="t_button" type="submit" name="" value="Upload">
