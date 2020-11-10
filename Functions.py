@@ -3,7 +3,7 @@ import os
 
 def Load_User_Database():
     try:
-        f=open(os.getcwd()+'\\User_Database.dat','rb')
+        f=open('User_Database.dat','rb')
         obj=pickle.load(f)
         f.close()
         return obj
@@ -12,7 +12,7 @@ def Load_User_Database():
         return obj
 
 def Write_User_Database(USER_DATABASE,User):
-    f=open(os.getcwd()+'\\User_Database.dat','wb')
+    f=open('User_Database.dat','wb')
     USER_DATABASE[User.Username]=User
     pickle.dump(USER_DATABASE,f)
     f.close()
@@ -38,8 +38,8 @@ def Load_Question_Database():
     # ]
 
     data=[]
-    for file in os.listdir(os.getcwd()+'\\Questions'):
-        f=open(os.getcwd()+'\\Questions'+'\\'+file+'\\statement.txt','r')
+    for file in os.listdir('Questions'):
+        f=open('Questions'+'\\'+file+'\\statement.txt','r')
         statement=f.read()
         f.close()
         d={'id':file,'explanation':statement}
@@ -70,14 +70,14 @@ def Prepare_rank_list(data_dict):
 def Increase_views():
     value=0
     try:
-        f=open(os.getcwd()+'\\Views_Database.dat','rb')
+        f=open('Views_Database.dat','rb')
         value=pickle.load(f)
         f.close()
     except:
         pass
 
     value+=1
-    f=open(os.getcwd()+'\\Views_Database.dat','wb')
+    f=open('Views_Database.dat','wb')
     pickle.dump(obj=value,file=f)
     f.close()
     return value
