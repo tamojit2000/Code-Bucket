@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request,redirect
+from flask import Flask,render_template,request,redirect,jsonify,Response
 from User import *
 from Functions import *
 import os
@@ -7,6 +7,8 @@ USER_DATABASE=Load_User_Database()
 QUESTION_DATABASE=Load_Question_Database()
 
 tmp_user_name=''
+
+
 
 app=Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
@@ -20,12 +22,29 @@ def add_header(response):
     return response
 
 
-@app.route('/')
+@app.route('/privacy_policy/Leafy')
+def Leafy():
+    return render_template('leafy_policy.html')
+
+@app.route('/volley', methods=['GET', 'POST'])
+def f():
+    content = request.get_json()
+    print (content['data'])
+    num=int(content['data'])+1
+
+    return jsonify({'return':num})
+
+
+@app.route('/privacy_policy/T_Drive')
+def T_Drive():
+    return render_template('T_Drive.html')
+
+@app.route('/code-bucket')
 def login():
     v=Increase_views()
     return render_template('login.html',Views=v)
 
-@app.route('/main_page',methods=['POST','GET'])
+@app.route('/code-bucket/main_page',methods=['POST','GET'])
 def main_page():
     global tmp_user_name
 
@@ -63,7 +82,7 @@ def main_page():
     return redirect('/')
 
 
-@app.route('/check',methods=['POST','GET'])
+@app.route('/code-bucket/check',methods=['POST','GET'])
 def check():
     global USER_DATABASE,QUESTION_DATABASE
 
@@ -82,13 +101,16 @@ def check():
 
 
 
-        file.save(key+file.filename)
-        Py=key+file.filename
-        Input="Questions/{}/input.txt".format(index)
-        Output=key+"out.txt"
-        os.system('{} < {} > {}'.format(Py,Input,Output))
+        file.save('/home/ysvg2tafy/mysite/'+key+file.filename)
+        Py='/home/ysvg2tafy/mysite/'+key+file.filename
+        Input="/home/ysvg2tafy/mysite/Questions/{}/input.txt".format(index)
+        Output='/home/ysvg2tafy/mysite/'+key+"out.txt"
 
-        actual="Questions/{}/output.txt".format(index)
+        os.system('chmod a=rwx {}'.format(Py))
+
+        os.system('python3 {} < {} > {}'.format(Py,Input,Output))
+
+        actual="/home/ysvg2tafy/mysite/Questions/{}/output.txt".format(index)
 
         f=open(actual,'r')
         content1=f.read().strip()
@@ -125,7 +147,7 @@ def check():
         return  redirect('/')
 
 
-@app.route('/rank_list.html',methods=['GET'])
+@app.route('/code-bucket/rank_list.html',methods=['GET'])
 def rank_list():
     if request.method=='GET':
         global USER_DATABASE
@@ -135,9 +157,10 @@ def rank_list():
     else:
         return redirect('/')
 
-@app.route('/instruction.html')
+@app.route('/code-bucket/instruction.html')
 def instruction():
     return render_template('instruction.html')
+
 
 
 if __name__=='__main__':

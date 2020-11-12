@@ -29,7 +29,7 @@
     <div class="Load_main_div">
 
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="/">CODE BUCKET</a>
+          <a class="navbar-brand">CODE BUCKET</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -104,14 +104,14 @@
 
     {% elif Status=="Wrong" %}
       <div class="Load_wrong_div">
-        <div class="content">
-            <h4>Authentication Failed!</h4>
+        <div>
             <br>
-            <br>
+            <img src="../static/img/authentication_failed.svg">
+            <center><h4>Authentication Failed!</h4>
             <p>
               Password incorrect.
               Go back and enter correct password.
-            </p>
+            </p></center>
 
 
         </div>

@@ -45,7 +45,7 @@ def Load_Question_Database():
         d={'id':file,'explanation':statement}
         data.append(d)
 
-
+    data=sorted(data,key=lambda x: x['id'])
 
     return data
 
