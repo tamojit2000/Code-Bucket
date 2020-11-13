@@ -8,17 +8,18 @@
     font-weight: 700;
     text-align: center;
     margin: 0 0 30px 0;
+    font-family: Montserrat;
 }
 .content-title-underline
 {
     width: 30px;
     height: 3px;
-    background-color: #34c6d3;
+    background-color: #00745D;
     margin: 0 auto 30px auto;
 }
 img{
     border-radius: 50%;
-    
+
 }
 
 
@@ -26,14 +27,14 @@ img{
     color:white;
     /* float: right !important; */
     padding-left: 60%;
-    
+
 }
 
 @media  (max-width: 480px)
 {
     .title{
         padding-left: 0 !important;
-        
+
     }
     .social-list
   {
@@ -78,7 +79,7 @@ h4.team-member-name
 }
 h4.team-member-designation
 {
-    color: #34c6d3;
+    color: #00745D;
     font-size: 15px;
     font-weight: 700;
     font-style: italic;
@@ -109,12 +110,5 @@ h4.team-member-designation
 }
 .social-icon i:hover
 {
-    color: #34c6d3;
+    color: #00745D;
 }
-
-
-
-
-
-
-
