@@ -12,6 +12,7 @@ tmp_user_name=''
 
 app=Flask(__name__)
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
+app.config['TEMPLATES_AUTO_RELOAD'] = True 
 
 @app.after_request
 def add_header(response):
@@ -91,8 +92,8 @@ def check():
 
     if request.method=='POST':
         file=request.files['file']
-        index=request.form['index']
-        key=request.form['userKey']
+        index=str(request.form['index'])
+        key=str(request.form['userKey'])
 
         user=USER_DATABASE[key]
 

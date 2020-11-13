@@ -42,7 +42,7 @@ def Load_Question_Database():
         f=open('Questions'+'\\'+file+'\\statement.txt','r')
         statement=f.read()
         f.close()
-        d={'id':file,'explanation':statement}
+        d={'id':int(file),'explanation':statement}
         data.append(d)
 
     data=sorted(data,key=lambda x: x['id'])

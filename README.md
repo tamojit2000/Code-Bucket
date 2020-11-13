@@ -16,6 +16,12 @@ A Coding Competition Platform
   - Checking Solution Page (check.html)
   - Rank List (rank_list.html)
   - Instruction Page (instruction.html)
+  
+
+### Screenshots
+![Login Screenshot](/Screenshot/Login.png?raw=true "Login Page")
+
+![RankList Screenshot](/Screenshot/RankList.png?raw=true "Ranklist Page")
 
 
 ### Note
